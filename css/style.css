@@ -38,7 +38,10 @@ main{
     align-items: center;
     cursor: pointer;
 }
-
+.bomb{
+    background-color: red;
+    color: white;
+}
 .easy{
     width: calc(100% / 10);
     height: calc(100% / 10);

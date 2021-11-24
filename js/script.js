@@ -22,7 +22,6 @@ function startGame() {
     // con il mainGrid.innerHTML = ''; vado a cancellare la vecchia griglia ogni volta che l'utente clicca su play
     const mainGrid = document.getElementById('grid');
     mainGrid.innerHTML = '';
-    //
     for(let i = 1; i <= numberOfSquares; i++) {
         const thisNumber = [i];
         const newGeneratedSquare = generateGridItem(thisNumber);
@@ -75,3 +74,34 @@ function generateSquaresNumbers (quantityOfNumbers) {
 
     return numbersArray;
 }
+
+//utilizzo una funzione che vada a generare le 16 bombe
+const bombs = 16;
+let maxNumber = 0;
+
+const scelta = document.getElementById('scelta').value;
+    if ( scelta === 'Easy' ){
+        maxNumber = 100;
+    }else if ( scelta === 'Medium' ){
+        maxNumber = 81;
+    }else{
+        maxNumber = 49;
+    }
+
+function getRndInteger(min, maxNumber) {
+    return Math.floor(Math.random() * (maxNumber - min) ) + min;
+}
+console.log(getRndInteger(1, bombs + 1));
+
+function generationBombs(bombs){
+    let myBombs = [];
+    for( let i = 0; i < bombs; i++ ){
+        let el = getRndInteger(1, maxNumber + 1);
+
+        myBombs.push(el);
+        console.log(el);
+    }
+    console.log(myBombs);
+    return myBombs;
+}
+myBombs = generationBombs(bombs);
