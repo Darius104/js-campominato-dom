@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+}
+header{
+    padding: 0 50px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* main */
+main{
+    padding: 0 50px;
+    height: calc(100% - 200px);
+    background-color: cyan;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.game-grid{
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.cella{
+    border:solid white 2px ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.easy{
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+.medium{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+.hard{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.active{
+    background-color: #6495ed;
+    color: white;
+}
+/* fine main */
+footer{
+    width: 100%;
+    height: 100px;
+    padding:0 50px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
