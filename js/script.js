@@ -39,6 +39,38 @@ function startGame() {
         }
 
     }
+
+
+
+    //utilizzo una funzione che vada a generare le 16 bombe
+    const bombs = 16;
+    let maxNumber = 0;
+        if ( scelta === 'Easy' ){
+            maxNumber = 100;
+        }else if ( scelta === 'Medium' ){
+            maxNumber = 81;
+        }else{
+            maxNumber = 49;
+        }
+
+    function getRndInteger(min, maxNumber) {
+        return Math.floor(Math.random() * (maxNumber - min) ) + min;
+    }
+    console.log(getRndInteger(1, bombs + 1));
+
+    function generationBombs(bombs){
+        let myBombs = [];
+        for( let i = 0; i < bombs; i++ ){
+            let el = getRndInteger(1, maxNumber + 1);
+            
+            myBombs.push(el);
+            console.log(el);
+
+        }
+        console.log(myBombs);
+        return myBombs;
+    }
+    myBombs = generationBombs(bombs);
 }
 // vado a creare una funzione che una volta cliccato sulla casella andrà ad aggiungere la classe
 // active dal css
@@ -56,52 +88,3 @@ function generateGridItem(number) {
     return newSquare;
 }
 //------------------------------------------------------
-
-// vado a creare i numeri da inserire dentro le celle
-// faccio un if per controllare se il numero è stato inserito all'interno della griglia almeno una volta
-// se l'if viene verificato come true non vado ad inserire il numero
-function generateSquaresNumbers (quantityOfNumbers) {
-    const numbersArray = [];
-    while(numbersArray.length < quantityOfNumbers) {
-
-        const randomNumber = getRndInteger(1, quantityOfNumbers);
-
-
-        if( !numbersArray.includes(randomNumber) ) {
-            numbersArray.push(randomNumber);
-        }
-    }
-
-    return numbersArray;
-}
-
-//utilizzo una funzione che vada a generare le 16 bombe
-const bombs = 16;
-let maxNumber = 0;
-
-const scelta = document.getElementById('scelta').value;
-    if ( scelta === 'Easy' ){
-        maxNumber = 100;
-    }else if ( scelta === 'Medium' ){
-        maxNumber = 81;
-    }else{
-        maxNumber = 49;
-    }
-
-function getRndInteger(min, maxNumber) {
-    return Math.floor(Math.random() * (maxNumber - min) ) + min;
-}
-console.log(getRndInteger(1, bombs + 1));
-
-function generationBombs(bombs){
-    let myBombs = [];
-    for( let i = 0; i < bombs; i++ ){
-        let el = getRndInteger(1, maxNumber + 1);
-
-        myBombs.push(el);
-        console.log(el);
-    }
-    console.log(myBombs);
-    return myBombs;
-}
-myBombs = generationBombs(bombs);
